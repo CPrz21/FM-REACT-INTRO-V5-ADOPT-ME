@@ -15,7 +15,7 @@ export const SearchParams = () => {
       const breedStrings = breeds.map(({ name }) => name);
       setBreeds(breedStrings);
     }, console.error);
-  }, [animal])
+  }, [animal, setBreeds, setBreed])
 
   return (
     <div className="search-params">
