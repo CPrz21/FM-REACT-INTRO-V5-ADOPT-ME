@@ -2,7 +2,10 @@ import React from 'react';
 import pet from "@frontendmasters/pet";
 
 class Details extends React.Component {
-  constructor()
+  constructor() {
+    super();
+    this.state = { loading: true };
+  }
   componentDidMount(){
     pet.animal(this.props.id)
       .then(({ animal }) => {
@@ -19,7 +22,22 @@ class Details extends React.Component {
   }
 
   render(){
+    const { animal, breed, location, description,  name, loading} = this.state;
 
+    if (this.state.loading){
+      return <h1>Loading ...</h1>;
+    }
+
+    return (
+      <div className="details">
+        <div>
+          <h1>{name}</h1>
+          <h2>{`${animal} - ${breed} - ${location}`}</h2>
+          <button>Adopt {name}</button>
+          <p>{description}</p>
+        </div>
+      </div>
+    )
   }
 }
 
