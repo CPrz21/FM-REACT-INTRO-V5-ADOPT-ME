@@ -6,11 +6,11 @@ import Details from "./Details";
 import ThemeContext from "./ThemeContext";
 
 const App = () => {
-  const themeHook = useState(themeHook);
+  const themeHook = useState("darkblue");
 
   return (
     <React.StrictMode>
-      <ThemeContext.Provider>
+      <ThemeContext.Provider value={themeHook}>
         <div>
           <header>
             <Link to="/">
