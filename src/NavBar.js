@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
 import { Link } from "@reach/router";
 import colors from "./colors";
 
 const NavBar = () => {
-  const [padding, setPadding] = useState(15);
+  const [padding] = useState(15);
+
+  const Spin = keyframes`
+    to {
+      transform: rotate(360deg);
+    }
+  `;
   return (
     <header
-      onClick={ () => setPadding(padding + 15)}
       css={css`
         padding: ${padding}px;
         background-color: ${colors.secondary};
@@ -17,7 +22,9 @@ const NavBar = () => {
       <span 
         css={css`
           font-size:60px;
+          animation: 1s ${Spin} linear infinite;
           &:hover {
+            animation: 1s ${Spin} linear reverse;
             text-decoration: underline;
           }
         `}
