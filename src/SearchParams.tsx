@@ -21,8 +21,6 @@ const SearchParams: FunctionComponent<RouteComponentProps> = () => {
       type: animal
     });
 
-    console.log("animals", animals);
-
     setPets(animals || []);
   }
 
